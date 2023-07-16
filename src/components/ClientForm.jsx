@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CurrentDate } from './CurrentDate'
 
 const ClientForm = () => {
 
     const { inputRef } = CurrentDate();
+
+    const [dataPartida, setDataPartida] = useState('');
+
+  const handleDataPartidaChange = (event) => {
+    const selectedDate = event.target.value;
+    setDataPartida(selectedDate);
+  };
+
 
   return (
     <div>   
@@ -18,7 +26,7 @@ const ClientForm = () => {
         <div className="form-control">
             <p>Informe o número de passageiros:</p>
             <label htmlFor="adultos">Adultos:</label>
-            <input type="number" name="adultos" id="adultos" min="0" max="10" defaultValue="1" required/>
+            <input type="number" name="adultos" id="adultos" min="1" max="10" defaultValue="1" required/>
             <label htmlFor="criancas">Crianças (Entre 2 a 11 anos):</label>
             <input type="number" name="criancas" id="criancas" min="0" max="10" defaultValue="0"/>
             <label htmlFor="bebes">Bebês (Até 2 anos):</label>
@@ -34,11 +42,11 @@ const ClientForm = () => {
         </div>
         <div className="form-control">
             <label htmlFor="data-partida">Data de partida:</label>
-            <input type="date" name="data-partida" id="data-partida" ref={inputRef} required/>
+            <input type="date" name="data-partida" id="data-partida" ref={inputRef} onChange={handleDataPartidaChange} required/>
         </div>
         <div className="form-control">
             <label htmlFor="data-volta">Data de volta:</label>
-            <input type="date" name="data-volta" id="data-volta"  required/>
+            <input type="date" name="data-volta" id="data-volta" min={dataPartida} required/>
         </div>
         <div className="form-control">
             <label htmlFor="name">Nome do passageiro principal:</label>
