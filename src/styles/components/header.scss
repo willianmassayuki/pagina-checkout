@@ -1,0 +1,10 @@
+@use '../variables';
+
+.header {
+  background-color: variables.$brand-color;
+
+  img {
+    width: 150px;
+    margin: 1rem 4rem;
+  }
+}
