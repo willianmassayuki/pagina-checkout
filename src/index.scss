@@ -1,0 +1,19 @@
+@use './styles/variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: variables.$font-stack;
+    color: variables.$text-sober-color;
+}
+
+body {
+    background-color: variables.$brand-color-sec;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+    color: variables.$title-sober-color;
+}
+
+ 

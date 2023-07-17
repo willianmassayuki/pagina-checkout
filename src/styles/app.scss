@@ -1,13 +1,122 @@
 @use './variables';
+@use './mixins';
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: variables.$font-stack;
-}
+.form-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 1.5rem;
+    background-color: variables.$text-button-color;
+    border-radius: 10px;
 
-html {
-    background-color: variables.$brand-color-sec;
+    form {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .inputs-container {
+        margin: 1rem 0;
+        min-height: 300px;
+    }
+
+    .form-control {
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        margin-bottom: 2rem;
+
+        input {
+            border: none;
+            height: 2.5rem;
+            box-shadow: 0px 0px 5px variables.$brand-color-sec;
+            border-radius: 4px;
+            transition-duration: .5s;
+
+            &:focus {   
+                outline: 0;
+                box-shadow: 0px 0px 5px variables.$brand-color;
+            }
+
+            &[type=number]::-webkit-inner-spin-button {  
+                width: 1rem;
+                height: 2rem;
+                padding-right: 10px;
+
+                &:hover {
+                    cursor: pointer;
+                    transform:scale(1.2);
+                }
+            }
+
+            &[type=date]::-webkit-calendar-picker-indicator {
+                cursor: pointer;
+                transform:scale(1.5);
+                padding-right: 10px;
+
+                &:hover {
+                    transform: scale(2);
+                }
+            }
+        }
+
+        .input-radius-group {
+            display: flex;
+            gap: 1.5rem;
+
+            div {
+                display: flex;
+                align-items: center;
+                
+                input {
+                    box-shadow: none;
+                    margin-left: .25rem;
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        margin: 1rem 0;
+
+        button {
+            border: none;
+            background-color: variables.$brand-color;
+            height: 2rem;
+            width: 5rem;
+            border-radius: .25rem;
+            transition: .5s;
+            margin-left: .5rem;
+
+            @include mixins.center(row); 
+
+            &:hover {
+                cursor: pointer;
+                opacity: .7;
+
+                &:first-child {
+                    font-size: 101%;
+                }
+            }
+            
+            span {
+                font-family: inherit;
+                font-size: 1.05rem;
+                font-weight: 700;
+                color: variables.$text-button-color;
+                margin: 0 .25rem;
+            }
+
+            svg {
+                fill: variables.$text-button-color;
+            }
+        }
+    }
 }
 

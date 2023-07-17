@@ -7,8 +7,8 @@ import ConfirmationScreen from './components/ConfirmationScreen';
 import FinishScreen from './components/FinishScreen';
 
 // Icons
-import { TbArrowBack, TbArrowForwardUp } from 'react-icons/tb';
 import { BsCheckCircleFill } from "react-icons/bs";
+import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
 // Hooks
 import { useForm } from './hooks/useForm';
@@ -24,7 +24,6 @@ function App() {
     <>
         <Header />     
         <div className="form-container">
-          <p>Etapas: Preencha os dados, confira as informações+enviar, envio completo</p>
           {/* Ao apertar o botão Avançar faz mudar o currentStep e o currentComponent por consequência */}
           <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
             <div className="inputs-container">
@@ -36,7 +35,7 @@ function App() {
               null
               : 
               <button type="button" onClick={() => changeStep(currentStep - 1)}>
-                <TbArrowBack />
+                <IoMdArrowRoundBack />
                 <span>Voltar</span>
               </button>
               }
@@ -45,7 +44,7 @@ function App() {
                 !isLastStep ? (
                   <button type="submit">
                     <span>Avançar</span>
-                    <TbArrowForwardUp />
+                    <IoMdArrowRoundForward />
                   </button>
                 ) : (
                   <button type="submit">
