@@ -7,6 +7,11 @@
     padding: 1.5rem;
     background-color: variables.$text-button-color;
     border-radius: 10px;
+    transition-duration: .7s;
+
+    @media screen and (max-width: variables.$screen-tablet) {
+        margin: 1rem;
+    }
 
     form {
         max-width: 500px;
@@ -16,6 +21,7 @@
     .inputs-container {
         margin: 1rem 0;
         min-height: 300px;
+        margin-bottom: 1.5rem;
     }
 
     .form-control {
@@ -74,8 +80,6 @@
                         cursor: pointer;
                     }
                 }
-
-                
             }
         }
     }
@@ -88,8 +92,8 @@
         button {
             border: none;
             background-color: variables.$brand-color;
-            height: 2rem;
-            width: 5rem;
+            height: 2.5rem;
+            width: 7rem;
             border-radius: .25rem;
             transition: .5s;
             margin-left: .5rem;
@@ -119,4 +123,3 @@
         }
     }
 }
-

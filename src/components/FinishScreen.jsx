@@ -1,9 +1,14 @@
+import '../styles/components/finishScreen.scss'
 import React from 'react'
+import { BsCheck2Circle } from 'react-icons/bs'
 
-const FinishScreen = () => {
+const FinishScreen = ({ data }) => {
   return (
-    <div>
-      <h1>Tela de agradecimento e processo concluído</h1>
+    <div className='finish-container'>
+      <h1>Envio de dados concluído!</h1>
+      <BsCheck2Circle /> 
+    <p>Obrigado pela preferência, {data.name}!</p>
+    <p>Entraremos em contato o mais rápido possível.</p>
     </div>
   )
 }

@@ -12,10 +12,39 @@ import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
 // Hooks
 import { useForm } from './hooks/useForm';
+import { useState } from 'react';
+
+// Template de dados
+const formTemplate = {
+  idaVolta: "",
+  adultos: "",
+  criancas: "",
+  bebes: "",
+  origem: "",
+  destino: "",
+  dataPartida: "",
+  dataVolta: "",
+  name: "",
+  email: "",
+}
 
 function App() {
-  
-  const fcomponents = [ <ClientForm />, <ConfirmationScreen />, <FinishScreen /> ];
+
+  const [ data, setData ] = useState(formTemplate);
+
+  // Função para atualização de dados ao passar a primeira tela
+  const updateFieldHandler = (key, value) => {
+    setData((prev) => {
+      return { ...prev, [key]: value };
+    });
+  };
+
+  // Componentes que variam dentro do container principal
+  const fcomponents = [ 
+  <ClientForm data={data} updateFieldHandler={updateFieldHandler}/>, 
+  <ConfirmationScreen data={data} />, 
+  <FinishScreen data={data} /> 
+  ];
 
   // Extraindo dos components
   const { currentStep, currentComponent, changeStep, isFirstStep, isLastStep, isCompleted } = useForm(fcomponents);
@@ -34,12 +63,12 @@ function App() {
               { isFirstStep || isCompleted ? 
               null
               : 
-              <button type="button" onClick={() => changeStep(currentStep - 1)}>
+              <button type="button" onClick={(e) => changeStep(currentStep - 1, e)}>
                 <IoMdArrowRoundBack />
                 <span>Voltar</span>
               </button>
               }
-              { /* Mudança de botão caso esteja no último step */
+              {/* Mudança de botão caso esteja no último step ou na tela de conclusão */
               !isCompleted ?
                 !isLastStep ? (
                   <button type="submit">
@@ -47,13 +76,12 @@ function App() {
                     <IoMdArrowRoundForward />
                   </button>
                 ) : (
-                  <button type="submit">
-                    <span>Enviar</span>
+                  <button type="submit" >
+                    <span>Confirmar</span>
                     <BsCheckCircleFill />
                   </button>
                 ) : null
               }
-              
             </div>
           </form>
         </div>

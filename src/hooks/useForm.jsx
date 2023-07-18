@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { isValidElement, useState } from "react";
 
 export function useForm(steps) {
     // Step ou tela atual, começando da posição 0

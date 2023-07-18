@@ -1,0 +1,16 @@
+@use '../variables';
+@use '../mixins';
+
+.finish-container {
+    @include mixins.center(column);
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    svg {
+        fill: variables.$brand-color;
+        font-size: 7rem;
+        margin: 30px auto;
+    }
+}
