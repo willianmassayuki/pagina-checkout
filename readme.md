@@ -7,7 +7,7 @@
 Uma página responsiva de checkout para uma agência de turismo contendo um formulário multistep com validações básicas para garantir a integridade e validade dos dados. 
 
 ### Captura de tela
-![Preview do projeto](./public/images/screenshots/desktop-1.png)
+![Preview do projeto](./public/images/screenshots/desktop.png)
 
 ## Como instalar e acessar localmente
 
