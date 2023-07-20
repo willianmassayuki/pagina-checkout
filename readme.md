@@ -1,7 +1,7 @@
 # Página de checkout para uma agência de turismo
 
 ### Live link
-> https://pagina-checkout.vercel.app/
+> https://pagina-checkout-git-alternative-willianmassayuki.vercel.app/
 
 ## Visão geral
 Uma página responsiva de checkout para uma agência de turismo contendo um formulário multistep com validações básicas para garantir a integridade e validade dos dados. 
